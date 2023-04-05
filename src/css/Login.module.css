@@ -19,5 +19,5 @@
 .check_box input:checked+label div:before{background:#271a6c;}
 .login {display:block; width:100%; height:40px; margin-top:20px; border-radius:20px; background:#fff; font-size:24px; line-height:40px; font-weight:500;}
 .login img{height:18px; margin:-5px 9px 0 0;}
-.sign_con {margin:30px 0 0 0; font-size:16px;}
-.sign_con a{margin:0 0 0 36px; color:#3fcbfc; text-decoration:none;}
+a.sign_con {display:block; margin:30px 0 0 0; font-size:16px; text-decoration:none; color:#fff;}
+a.sign_con span{margin:0 0 0 36px; color:#3fcbfc;}

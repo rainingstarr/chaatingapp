@@ -5,6 +5,7 @@
 .txt_box input:focus+label,
 .txt_box input:valid+label{transform:scale(.74); margin-top:-33px; transform-origin:top left; color:#eee;}
 .txt_box label{position:absolute; left:20px; top:50%; transform:translateY(-50%); margin-top:-2px; color:#aaa; font-size:16px; transition:all 250ms ease-out;}
+.txt_box div{position:absolute; top:33px; left:20px; color:#ff5555;}
 .txtID_box{}
 .txtPW_box{margin-top:30px;}
 .txtPW_box img{position:absolute; right:15px; top:50%; width:20px; padding:5px; transform:translateY(-50%); cursor:pointer;}
@@ -30,6 +31,6 @@
 .txtGD_box div label input:checked~div:before{background:#4c35c5; box-shadow:0 2px 6px rgba(100,74,201,1);}
 .txtGD_box div label input:active~div:before{background:#222;}
 
-.login {display:block; width:100%; height:40px; margin-top:20px; border-radius:20px; background:#fff; font-size:24px; line-height:40px; font-weight:500;}
-.sign_con {margin:30px 0 0 0; font-size:16px;}
-.sign_con a{margin:0 0 0 32px; color:#3fcbfc; text-decoration:none;}
+.login {display:block; width:100%; height:40px; margin-top:30px; border-radius:20px; background:#fff; font-size:24px; line-height:40px; font-weight:500;}
+a.sign_con {display:block; margin:30px 0 0 0; font-size:16px; text-decoration:none; color:#fff;}
+a.sign_con span{margin:0 0 0 32px; color:#3fcbfc;}
