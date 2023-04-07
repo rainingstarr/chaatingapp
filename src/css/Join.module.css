@@ -1,13 +1,17 @@
 .main{margin-top:-8px; font-size:48px; line-height:1em; font-weight:500;}
-.txt_box{position:relative; width:100%; margin-top:30px;}
+.txt_box{position:relative; width:100%; margin-top:40px;}
 .txt_box input{position:relative; width:100%; height:30px; padding:0 20px 0 20px; font-size:16px; border:none; border-radius:25px; box-sizing:border-box; color:#eee; background:#4c35c5;}
 .txt_box input:focus{background:#5d46d6;}
 .txt_box input:focus+label,
 .txt_box input:valid+label{transform:scale(.74); margin-top:-33px; transform-origin:top left; color:#eee;}
 .txt_box label{position:absolute; left:20px; top:50%; transform:translateY(-50%); margin-top:-2px; color:#aaa; font-size:16px; transition:all 250ms ease-out;}
-.txt_box div{position:absolute; top:33px; left:20px; color:#ff5555;}
+.txt_box .warningMsg{position:absolute; top:33px; left:20px; color:#3fcbfc;}
+.txt_box .checkBox{position:absolute; top:9px; right:-25px; width:20px; height:20px;}
+.txt_box .checkBox:before,
+.txt_box .checkBox:after{position:absolute; content:''; background:#3fcbfc;}
+.txt_box .checkBox:before{position:absolute; left:2px; top:0; content:''; width:6px; height:2px; transform:rotate(45deg);}
+.txt_box .checkBox:after{position:absolute;  left:5px; top:-2px; content:''; width:12px; height:2px;  transform:rotate(-45deg);}
 .txtID_box{}
-.txtPW_box{margin-top:30px;}
 .txtPW_box img{position:absolute; right:15px; top:50%; width:20px; padding:5px; transform:translateY(-50%); cursor:pointer;}
 
 .txtBD_box{display:inline-block; *zoom:1; *display:inline; width:50%;}
@@ -18,7 +22,7 @@
 .txtBD_box input::-webkit-inner-spin-button{display:none;}
 .txtBD_box input::-webkit-calendar-picker-indicator{position:absolute; left:0; top:0; width:100%; height:100%; background:transparent; color:transparent; cursor:pointer;}
 
-.txtGD_box{display:inline-block; *zoom:1; *display:inline; width:50%; height:25px; margin-top:35px; vertical-align:top; text-align:left;}
+.txtGD_box{display:inline-block; *zoom:1; *display:inline; width:50%; height:25px; margin-top:45px; vertical-align:top; text-align:left;}
 .txtGD_box input{display:none;}
 .txtGD_box div{display:inline-block; *zoom:1; *display:inline; vertical-align:top;}
 .txtGD_box div label{font-size:16px;}
@@ -31,6 +35,6 @@
 .txtGD_box div label input:checked~div:before{background:#4c35c5; box-shadow:0 2px 6px rgba(100,74,201,1);}
 .txtGD_box div label input:active~div:before{background:#222;}
 
-.login {display:block; width:100%; height:40px; margin-top:30px; border-radius:20px; background:#fff; font-size:24px; line-height:40px; font-weight:500;}
+.login {display:block; width:100%; height:40px; margin-top:40px; border-radius:20px; background:#fff; font-size:24px; line-height:40px; font-weight:500;}
 a.sign_con {display:block; margin:30px 0 0 0; font-size:16px; text-decoration:none; color:#fff;}
 a.sign_con span{margin:0 0 0 32px; color:#3fcbfc;}
