@@ -24,14 +24,15 @@ function Join(props) {
     const phoneRegex = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/; // 전화번호 유효성 검사 정규식
     const nameRegex = /^[가-힣]{2,5}$/; //이름 유효성 검사 정규식   
         
-    function join(){
+    function join(e){
         var form = document.joinForm,
         checked = document.querySelector('input[type=radio][name=gender]:checked');
         if(form.txtID.value =="" || form.txtNA.value =="" || form.txtMI.value =="" || form.txtPW.value =="" || form.txtCPW.value =="" || form.txtBD.value =="" || checked == null || form.txtPH.value =="" ){
-            props.modalOpen("모든 항목을 입력해주세요")
+            props.modalOpen("모든 항목을 입력해주세요");
+            e.preventDefault();            
         }else if(isId == false|| isName == false || isMail == false || isPw == false || isCpw == false || isPh == false){
-            props.modalOpen("입력한 정보를 형식에 맞게 작성해주세요")
-
+            props.modalOpen("입력한 정보를 형식에 맞게 작성해주세요");
+            e.preventDefault();
         }else{
             fetch('http://localhost:8881/sign/signup',{
                 method: 'post',
@@ -39,13 +40,24 @@ function Join(props) {
                     user_id: form.txtID.value,
                     user_name: form.txtNA.value,
                     user_email: form.txtMI.value,
-                    user_pw: form.txtPW.value,
+                    user_password: form.txtPW.value,
                     user_birth: form.txtBD.value,
                     user_gender: checked.value,
                     user_phone: form.txtPH.value,
                 })
-            }
-        )}
+            }).then(res => res.json())
+            .then(res => {
+                if(res.message == "success"){
+                    props.modalOpen("회원가입이 완료되었습니다");
+                    props.history.push('/login');
+                }else{
+                    props.modalOpen("회원가입에 실패했습니다");
+                    e.preventDefault();
+                }
+            }).catch((error) => {
+                props.modalOpen('회원가입에 실패했습니다 error:',error);
+            });
+        }
     }
 
     function check(setMessage,setIs,Message,condition){
@@ -82,7 +94,7 @@ function Join(props) {
                         <input type={props.inputType} id="txtPW" name="user_password" onChange={(e)=>{
                             check(setPwMessage,setIsPw,'최소 8자, 최소 하나의 문자 및 숫자를 작성해주세요',!passwordRegex.test(e.target.value));
                             check(setCpwMessage,setIsCpw,'비밀번호와 일치하지 않습니다.',!(document.querySelector('input#txtCPW').value === document.querySelector('input#txtPW').value))
-                        }} required/>                        
+                        }} required/>
                         <label htmlFor="txtPW">비밀번호</label>
                         <div className={styles.warningMsg}>{pwMessage}</div>
                         <img src={process.env.PUBLIC_URL+props.imageSrc} onClick={props.passwordShow}/>
@@ -94,7 +106,7 @@ function Join(props) {
                         <img src={process.env.PUBLIC_URL+props.imageSrc} onClick={props.passwordShow}/>
                     </div>
                     <div className={`${styles.txt_box} ${styles.txtBD_box}`}>
-                        <input type="date" id="txtBD" name="birth"  required/>
+                        <input type="date" id="txtBD" name="user_birth"  required/>
                         <label htmlFor="txtBD">생년월일</label>
                     </div>{/*
                     */}<div className={styles.txtGD_box}>
@@ -119,10 +131,8 @@ function Join(props) {
                         <input type="tel" id="txtPH" name="phone_number" onChange={(e)=>{check(setPhMessage,setIsPh,'예)012-3456-7890 형식으로 작성해주세요.',!phoneRegex.test(e.target.value))}} required/>
                         <label htmlFor="txtPH">전화번호</label>
                         <div className={styles.warningMsg}>{phMessage}</div>
-                    </div>                
-                    <a className={`btns ${styles.login}`} onClick={join}>
-                        회원가입
-                    </a>
+                    </div>
+                    <Link to="/" className={`btns ${styles.login}`} onClick={join}>회원가입</Link>
                 </form>
                 <Link to="/" className={styles.sign_con}>계정이 이미 있으십니까?<span className="sign">로그인 하러가기</span></Link>
             </div>

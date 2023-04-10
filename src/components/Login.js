@@ -32,10 +32,10 @@ function Login(props) {
             <div>아이디 저장</div>
             </label>
           </div>
-          <a className={`btns ${styled.login}`}>
+          <Link className={`btns ${styled.login}`} to="/main">
             <img src={process.env.PUBLIC_URL+"img/icon_01.svg"}/>
-            로그인	
-          </a>
+            로그인
+          </Link>
           <Link to="/join" className={styled.sign_con}>계정이 없으십니까?<span className="sign">회원가입</span></Link>
         </div>
     )
