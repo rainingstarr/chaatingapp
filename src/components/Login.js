@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from '../css/Login.module.css';
+import styles from '../css/Login.module.css';
 
 function Login(props) {
 
@@ -16,27 +16,27 @@ function Login(props) {
 
     return(
         <div className="wrap">
-          <div className={styled.main}>로그인</div>
-          <div className={`${styled.txt_box} ${styled.txtID_box}`}>
+          <div className={styles.main}>로그인</div>
+          <div className={`${styles.txt_box} ${styles.txtID_box}`}>
             <input type="text" id="txtID" required/>
             <label htmlFor="txtID">아이디</label>
           </div>
-          <div className={`${styled.txt_box} ${styled.txtPW_box}`}>
+          <div className={`${styles.txt_box} ${styles.txtPW_box}`}>
             <input type={props.inputType} id="txtPW" required/>
             <label htmlFor="txtPW">비밀번호</label>
             <img src={process.env.PUBLIC_URL+props.imageSrc} onClick={props.passwordShow}/>
           </div>
-          <div className={`${styled.check_box} ${styled.idsave}`}>
+          <div className={`${styles.check_box} ${styles.idsave}`}>
             <input type="checkbox" id="saveID"/>
             <label htmlFor="saveID">
             <div>아이디 저장</div>
             </label>
           </div>
-          <Link className={`btns ${styled.login}`} to="/main">
+          <Link className={`btns ${styles.login}`} to="/main">
             <img src={process.env.PUBLIC_URL+"img/icon_01.svg"}/>
             로그인
           </Link>
-          <Link to="/join" className={styled.sign_con}>계정이 없으십니까?<span className="sign">회원가입</span></Link>
+          <Link to="/join" className={styles.sign_con}>계정이 없으십니까?<span className="sign">회원가입</span></Link>
         </div>
     )
 }

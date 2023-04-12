@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login imageSrc={imageSrc} inputType={inputType} passwordShow={passwordShow}/>}/>
         <Route path="/join" element={<Join imageSrc={imageSrc} inputType={inputType} passwordShow={passwordShow} modalOpen={modalOpen}/>}/>
-        <Route path="/main" element={<Main></Main>}/>
+        <Route path="/main/*" element={<Main/>}/>
       </Routes>    
     </>
   );
