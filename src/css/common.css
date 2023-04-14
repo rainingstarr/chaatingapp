@@ -5,7 +5,9 @@
 .btns:hover{box-shadow: 0 8px 24px -12px rgba(255,255,255,.85); background:#fff;}
 .btns:active{box-shadow: 0 1px 3px -2px rgba(255,255,255,1); background:#fff; transform: scale(.998);}
 .btns.btn_a{background:#785efb;}
+.btns.btn_b{width:40px; height:40px; border-radius:20px; margin-left:20px; background:#785efb;}
 /*------------------------------------------------button css----------------------------------------------------*/
+img{pointer-events:none;}
 * {font-family: 'Noto Sans KR', sans-serif;}
 html{background:#d7d2f2;color:#eee;}
 a{cursor:pointer;}
@@ -17,15 +19,44 @@ a{cursor:pointer;}
 input{position:relative; width:100%; height:30px; padding:0 20px 0 20px; font-size:16px; border:none; border-radius:25px; box-sizing:border-box; color:#eee; background:#4c35c5;}
 .open_nav_cover {position:fixed; top:0; left:0; height:0vh; width:100vw; backdrop-filter:blur(0px); -webkit-backdrop-filter:blur(0px); background: rgba(0,0,0,0); transition: backdrop-filter 0.25s linear, height 0s linear 0.25s, background 0.25s linear;z-index: 9;}
 .open_nav_cover.show {position:fixed; top:0; left:0; height: 100vh; width:100vw; background: rgba(0,0,0,0.3);backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);transition: backdrop-filter 0.25s linear, background 0.25s linear;}
-.chattingRoom{position:relative; display:inline-block; width:400px; height:100%; margin:0 20px; padding:20px; background:#4c35c5; border-radius:20px;}
-.chattingRoom input{background:#785efb; height:40px; font-size:18px; line-height:41px;}
-.chattingRoom img.search_img{position:absolute; right:36px; top:28px; height:25px;}
-.chattingRoom .chattingList{width:360px; height:620px;}
-.chattingRoom .chattingList .chatting {position:relative; width:360px; height:80px; margin:20px 0; padding:20px; background:#785efb; border-radius:20px;}
-.chattingRoom .chattingList .chatting .profile_con {position:relative; display:inline-block; width:40px; height:40px; border-radius:20px; overflow:hidden;}
-.chattingRoom .chattingList .chatting .profile_con:before {position:absolute; left:0; top:0; width:40px; height:40px; content:''; border:solid #fff 2px; border-radius:20px; box-sizing:border-box;}
-.chattingRoom .chattingList .chatting .profile_con img{width:100%;}
+.chattingRoom{position:relative; display:inline-block; width:400px; height:100%; margin:0; padding:20px; background:#4c35c5; border-radius:20px;}
+.chattingRoom:after,
+.chattingRoom:before{position:absolute; left:0; content:''; width:100%; height:20px;  z-index:1;}
+.chattingRoom:after{top:70px; background:linear-gradient( rgba(76,53,197,1),rgba(76,53,197,0));}
+.chattingRoom:before{bottom:20px; background:linear-gradient(rgba(76,53,197,0), rgba(76,53,197,1));}
+.chattingScreen label,
+.chattingRoom label{position:relative; display:inline-block;}
+.chattingScreen label{width:600px;}
+.chattingRoom label{width:100%;}
+.chattingScreen label input.search,
+.chattingRoom label input{background:#785efb; height:40px; font-size:18px; line-height:41px;}
+.chattingScreen label img.search_img,
+.chattingRoom label img.search_img{position:absolute; right:16px; top:7px; height:25px;}
+.chattingRoom .chattingList{position:relative; width:360px; height:630px; margin-top:10px; padding-right:14px; overflow-y:auto; box-sizing:content-box;}
+.chattingRoom .chattingList::-webkit-scrollbar{width:8px;}
+.chattingRoom .chattingList::-webkit-scrollbar-thumb{width:4px; background:#4026ac; border-radius:10px;}
+.chattingRoom .chattingList::-webkit-scrollbar-track{margin:20px 0; background:#785efb; border-radius:10px;}
+.chattingRoom .chattingList .chatting {position:relative; display:block; width:360px; height:80px; margin:20px 0; padding:20px; background:#785efb; border-radius:20px; box-sizing:border-box; color:#eee; cursor:pointer;}
+.chattingRoom .chattingList .chatting .profile_con {position:relative; display:inline-block; width:40px; height:40px; border-radius:20px; border:solid #fff 2px;}
+.chattingRoom .chattingList .chatting .profile_con:after {position:absolute; right:-2px; bottom:-2px; width:12px; height:12px; content:''; border:solid #fff 2px; border-radius:6px; box-sizing:border-box;}
+.chattingRoom .chattingList .chatting .profile_con.online:after{background-color:#04ed14;}
+.chattingRoom .chattingList .chatting .profile_con.offline:after{background-color:#ccc;}
+.chattingRoom .chattingList .chatting .profile_con img{width:calc(100% - 4px); margin:2px;}
 .chattingRoom .chattingList .chatting .chatting_info{display:inline-block; height:40px; margin-left:10px;}
 .chattingRoom .chattingList .chatting .chatting_info .chatting_name{font-size:14px; font-weight:500; margin-top:1px;}
 .chattingRoom .chattingList .chatting .chatting_info .chatting_message{font-size:12px; font-weight:300; margin-top:3px; color:#ccc;}
 .chattingRoom .chattingList .chatting .chatting_time{position:absolute; right:20px; top:21px;}
+.chattingScreen {display:inline-block; width:760px; height:720px; margin-left:40px; padding:20px; border-radius:20px; background:#d7d2f2;}
+.chattingScreen .header .btn_b img{width:20px; margin-top:-2px;}
+.chattingScreen .header .btn_b.close:after,
+.chattingScreen .header .btn_b.close:before{position:absolute; left:19px; top:11px; width:2px; height:18px; content:''; background:#fff; border-radius:50%;}
+.chattingScreen .header .btn_b.close:after{transform:rotate(45deg);}
+.chattingScreen .header .btn_b.close:before{transform:rotate(-45deg);}
+.chattingScreen .header .info{margin-top:20px; color:#222; font-weight:500;}
+.chattingScreen .header .info .name{display:inline-block; font-size:24px; line-height:1em;}
+.chattingScreen .header .info .status{display:inline-block; font-size:12px; line-height:1em; vertical-align:bottom;}
+.chattingScreen .messageScreen {width:100%; height:499px; color:#222;}
+.chattingScreen .messageScreen div .message{display:inline-block; margin-top:20px; padding:30px 50px; font-size:18px; font-weight:500; border:solid 2px #785efb; border-radius:20px;}
+.chattingScreen .messageScreen div .time{display:inline-block; margin:0 10px; font-size:14px; font-weight:500; color:#333; vertical-align:bottom;}
+.chattingScreen .messageScreen .right{text-align:right;}
+.chattingScreen .messageScreen .right .message{background:#785efb; color:#eee;}
