@@ -41,9 +41,9 @@ function Join(props) {
                     user_name: form.txtNA.value,
                     user_email: form.txtMI.value,
                     user_password: form.txtPW.value,
-                    user_birth: form.txtBD.value,
-                    user_gender: checked.value,
-                    user_phone: form.txtPH.value,
+                    birth: form.txtBD.value,
+                    gender: checked.value,
+                    phone_number: form.txtPH.value,
                 })
             }).then(res => res.json())
             .then(res => {
